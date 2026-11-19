@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Teaching — Dr. Nagarjuna Sunkara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#14253D;--navy-deep:#0D1B2E;--gold:#A88950;--gold-light:#C4A86A;--ivory:#F7F4EC;--ivory-soft:#F0EDE4;--white:#FFFFFF;--text-dark:#1A1A2E;--text-mid:#4A4A6A;--text-light:#7A7A9A;--border:#E2DDD3;--shadow:rgba(20,37,61,0.10);--transition:0.3s cubic-bezier(0.4,0,0.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text-dark);background:var(--ivory);line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;background:var(--navy);box-shadow:0 2px 24px var(--shadow)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-brand{font-family:'Playfair Display',serif;color:var(--white);font-size:1rem;font-weight:600}
+.nav-links{display:flex;align-items:center;gap:0.15rem;list-style:none}
+.nav-links a{font-size:0.82rem;font-weight:500;color:rgba(255,255,255,0.75);padding:0.45rem 0.75rem;border-radius:4px;transition:color var(--transition),background var(--transition)}
+.nav-links a:hover,.nav-links a.active{color:var(--gold-light);background:rgba(255,255,255,0.06)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px}
+.nav-drawer{position:fixed;inset:0;z-index:200;pointer-events:none}
+.nav-drawer-bg{position:absolute;inset:0;background:rgba(13,27,46,0.85);opacity:0;transition:opacity var(--transition)}
+.nav-drawer-panel{position:absolute;top:0;right:0;bottom:0;width:275px;background:var(--navy);padding:4.5rem 1.75rem 2rem;transform:translateX(100%);transition:transform var(--transition);display:flex;flex-direction:column;gap:0.2rem}
+.nav-drawer.open{pointer-events:all}
+.nav-drawer.open .nav-drawer-bg{opacity:1}
+.nav-drawer.open .nav-drawer-panel{transform:translateX(0)}
+.drawer-link{font-size:1rem;font-weight:500;color:rgba(255,255,255,0.78);padding:0.85rem 1rem;border-radius:5px;border-bottom:1px solid rgba(255,255,255,0.06);transition:var(--transition)}
+.drawer-link:hover{color:var(--gold-light)}
+.drawer-close{position:absolute;top:1.1rem;right:1.4rem;background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.55);font-size:1.35rem;padding:0.25rem}
+.page-header{background:var(--navy);padding:6rem 2rem 3.5rem;margin-top:68px}
+.page-header-inner{max-width:1200px;margin:0 auto}
+.breadcrumb{font-size:0.75rem;color:rgba(255,255,255,0.4);letter-spacing:0.08em;margin-bottom:1rem}
+.breadcrumb a{color:rgba(255,255,255,0.4)}
+.breadcrumb span{color:var(--gold)}
+.page-header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--white);margin-bottom:0.5rem}
+.page-header p{font-size:1rem;color:rgba(255,255,255,0.6);max-width:580px}
+.content{max-width:1200px;margin:0 auto;padding:4rem 2rem}
+.section-label{font-size:0.68rem;letter-spacing:0.16em;color:var(--gold);font-weight:500;margin-bottom:0.75rem;text-transform:uppercase}
+.section-heading{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:700;color:var(--text-dark);line-height:1.2;margin-bottom:1rem}
+.divider{width:40px;height:2px;background:var(--gold);margin-bottom:2rem}
+.section-sep{border:none;border-top:1px solid var(--border);margin:3.5rem 0}
+/* PHILOSOPHY BLOCK */
+.philosophy-block{background:var(--navy);border-radius:10px;padding:2.5rem 3rem;margin-bottom:3rem}
+.philosophy-block blockquote{font-family:'Playfair Display',serif;font-size:clamp(1.1rem,1.8vw,1.35rem);color:rgba(255,255,255,0.88);line-height:1.75;font-style:italic;border-left:3px solid var(--gold);padding-left:1.5rem}
+/* CURRENT SUBJECTS */
+.subjects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:1.5rem}
+.subject-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:1.4rem 1.5rem;border-top:3px solid var(--gold)}
+.subject-card .subject-code{font-size:0.68rem;letter-spacing:0.12em;color:var(--gold);font-weight:600;margin-bottom:0.4rem;text-transform:uppercase}
+.subject-card h3{font-family:'Playfair Display',serif;font-size:1rem;color:var(--text-dark);margin-bottom:0.5rem;line-height:1.3}
+.subject-card p{font-size:0.825rem;color:var(--text-mid);line-height:1.6}
+.subject-card .level{font-size:0.75rem;color:var(--text-light);margin-top:0.5rem}
+/* TOOLS */
+.tools-wrap{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:1rem}
+.tool-pill{font-size:0.8rem;padding:0.35rem 0.9rem;border-radius:20px;border:1px solid var(--border);color:var(--text-mid);background:var(--white)}
+/* APPROACH GRID */
+.approach-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:1.5rem}
+.approach-item{padding:1.4rem;border:1px solid var(--border);border-radius:8px;background:var(--white)}
+.approach-item h4{font-family:'Playfair Display',serif;font-size:1rem;color:var(--text-dark);margin-bottom:0.5rem}
+.approach-item p{font-size:0.835rem;color:var(--text-mid);line-height:1.65}
+/* FUTURE INTERESTS */
+.future-list{display:flex;flex-direction:column;gap:0.6rem;margin-top:1rem}
+.future-item{padding:0.85rem 1.1rem;background:var(--ivory-soft);border-left:2px solid var(--gold);border-radius:4px;font-size:0.875rem;color:var(--text-mid)}
+footer{background:var(--navy-deep);padding:2rem;text-align:center;border-top:1px solid rgba(255,255,255,0.07)}
+footer p{font-size:0.775rem;color:rgba(255,255,255,0.32)}
+@media(max-width:900px){.subjects-grid{grid-template-columns:1fr 1fr}.approach-grid{grid-template-columns:1fr}.nav-links{display:none}.nav-toggle{display:flex}}
+@media(max-width:580px){.subjects-grid{grid-template-columns:1fr}.content{padding:2.5rem 1.25rem}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">Dr. Nagarjuna Sunkara</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teaching.html" class="active">Teaching</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="api.html">API</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <div class="nav-drawer-bg" onclick="toggleDrawer()"></div>
+  <div class="nav-drawer-panel">
+    <button class="drawer-close" onclick="toggleDrawer()">✕</button>
+    <a class="drawer-link" href="index.html">Home</a>
+    <a class="drawer-link" href="about.html">About</a>
+    <a class="drawer-link" href="teaching.html">Teaching</a>
+    <a class="drawer-link" href="research.html">Research</a>
+    <a class="drawer-link" href="publications.html">Publications</a>
+    <a class="drawer-link" href="experience.html">Experience</a>
+    <a class="drawer-link" href="api.html">API</a>
+    <a class="drawer-link" href="contact.html">Contact</a>
+  </div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> / <span>Teaching</span></div>
+    <h1>Teaching</h1>
+    <p>Business Management · Analytics · Evidence-Informed, Industry-Connected Pedagogy</p>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- PHILOSOPHY -->
+  <div class="section-label">Teaching Philosophy</div>
+  <h2 class="section-heading">My Approach to Teaching</h2>
+  <div class="divider"></div>
+  <div class="philosophy-block">
+    <blockquote>"I believe great teaching is about creating experiences that challenge students to think critically, engage authentically and grow professionally. My classroom is a space where theory meets practice — where management concepts are not just taught but explored through real-world data, industry case studies and collaborative problem-solving. I bring my industry experience into the classroom, helping students bridge the gap between academic learning and professional expectations. I aim to develop not just knowledgeable graduates but confident, analytical and empathetic future professionals who are ready to lead in complex, evolving organisations."</blockquote>
+  </div>
+
+  <!-- CURRENT SUBJECTS -->
+  <div class="section-label">Current Responsibilities</div>
+  <h2 class="section-heading">Subjects Taught — AY 2026–27</h2>
+  <div class="divider"></div>
+  <p style="font-size:0.95rem;color:var(--text-mid);margin-bottom:0.5rem">Department of Business Management · St. Mary's College, Yousufguda, Hyderabad</p>
+  <div class="subjects-grid">
+    <div class="subject-card">
+      <div class="subject-code">BBA Core</div>
+      <h3>Business Analytics</h3>
+      <p>Data-driven decision-making, analytical frameworks, business intelligence and practical applications of analytics in management contexts.</p>
+      <div class="level">BBA — Undergraduate</div>
+    </div>
+    <div class="subject-card">
+      <div class="subject-code">BBA Core</div>
+      <h3>Business Economics</h3>
+      <p>Micro and macroeconomic principles applied to business decision-making, market structures, pricing and resource allocation.</p>
+      <div class="level">BBA — Undergraduate</div>
+    </div>
+    <div class="subject-card">
+      <div class="subject-code">BBA Elective</div>
+      <h3>Advanced Data Visualisation</h3>
+      <p>Principles of effective visual communication of data, dashboard design, and tools for creating compelling analytical narratives.</p>
+      <div class="level">BBA — Undergraduate</div>
+    </div>
+  </div>
+
+  <hr class="section-sep">
+
+  <!-- TEACHING APPROACH -->
+  <div class="section-label">Pedagogy</div>
+  <h2 class="section-heading">How I Teach</h2>
+  <div class="divider"></div>
+  <div class="approach-grid">
+    <div class="approach-item">
+      <h4>Real-World Datasets</h4>
+      <p>Classes are designed around live and real-world datasets drawn from industry sources, enabling students to work with the same quality of data they will encounter in professional settings.</p>
+    </div>
+    <div class="approach-item">
+      <h4>Case-Based Learning</h4>
+      <p>Each concept is anchored in an industry case study — from HR analytics in FMCG to econometric models in financial services — making abstract theory immediately actionable.</p>
+    </div>
+    <div class="approach-item">
+      <h4>Collaborative Problem-Solving</h4>
+      <p>Group projects and structured seminars encourage peer learning, teamwork and the kind of professional communication that employers consistently identify as a gap among fresh graduates.</p>
+    </div>
+    <div class="approach-item">
+      <h4>Analytical Thinking First</h4>
+      <p>Tools are taught as means, not ends. Whether Excel, Python, Tableau or SPSS, the emphasis is always on the quality of the question being asked, not the software being used to answer it.</p>
+    </div>
+  </div>
+
+  <hr class="section-sep">
+
+  <!-- TOOLS & TECHNOLOGIES -->
+  <div class="section-label">Classroom Resources</div>
+  <h2 class="section-heading">Tools &amp; Technologies</h2>
+  <div class="divider"></div>
+  <p style="font-size:0.95rem;color:var(--text-mid);margin-bottom:0.25rem">Students in my courses develop working familiarity with the following:</p>
+  <div class="tools-wrap">
+    <span class="tool-pill">Microsoft Excel (Advanced)</span>
+    <span class="tool-pill">SPSS</span>
+    <span class="tool-pill">STATA (Intro)</span>
+    <span class="tool-pill">Tableau / Power BI</span>
+    <span class="tool-pill">Python (Pandas &amp; Matplotlib)</span>
+    <span class="tool-pill">Google Looker Studio</span>
+    <span class="tool-pill">Harvard Business Cases</span>
+    <span class="tool-pill">CMIE Prowess / EPWRF</span>
+  </div>
+
+  <hr class="section-sep">
+
+  <!-- MENTORING -->
+  <div class="section-label">Student Development</div>
+  <h2 class="section-heading">Mentoring &amp; Academic Contributions</h2>
+  <div class="divider"></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
+    <div>
+      <h4 style="font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--text-dark);margin-bottom:0.75rem">Class Mentoring</h4>
+      <p style="font-size:0.9rem;color:var(--text-mid);line-height:1.75">As a class mentor for BBA students, I work closely with students on academic performance, career planning, skill development and overall well-being. Mentoring is a responsibility I take seriously — it is an extension of teaching, not an administrative duty.</p>
+    </div>
+    <div>
+      <h4 style="font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--text-dark);margin-bottom:0.75rem">Career Readiness</h4>
+      <p style="font-size:0.9rem;color:var(--text-mid);line-height:1.75">I facilitate regular sessions on career planning, resume writing, interview skills and professional communication — drawing directly on my industry background in HR and talent management to give students practical, current guidance.</p>
+    </div>
+  </div>
+
+  <hr class="section-sep">
+
+  <!-- FUTURE INTERESTS -->
+  <div class="section-label">Future Teaching Interests</div>
+  <h2 class="section-heading">Subjects I Aim to Teach</h2>
+  <div class="divider"></div>
+  <p style="font-size:0.9rem;color:var(--text-mid);margin-bottom:1rem">The following represent teaching interests and areas I am developing towards — not current assignments.</p>
+  <div class="future-list">
+    <div class="future-item">Strategic Human Resource Management — integrating behavioural science and analytics into HRM theory and practice</div>
+    <div class="future-item">People Analytics &amp; HR Technology — workforce data, predictive HR and evidence-based HR decision-making at the postgraduate level</div>
+    <div class="future-item">Organisational Behaviour — the psychology of work, teams, leadership and organisational culture</div>
+    <div class="future-item">Research Methods for Management — quantitative and mixed-methods approaches for business and social science research</div>
+    <div class="future-item">AI &amp; the Future of Work — the implications of artificial intelligence, automation and algorithmic management for organisations and workers</div>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Dr. Nagarjuna Sunkara · Assistant Professor, Department of Business Management, St. Mary's College, Yousufguda, Hyderabad · <a href="mailto:nagarjuna@stmaryscollege.in" style="color:rgba(255,255,255,0.4)">nagarjuna@stmaryscollege.in</a></p>
+</footer>
+<script>function toggleDrawer(){document.getElementById('navDrawer').classList.toggle('open')}</script>
+</body>
+</html>

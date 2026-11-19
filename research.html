@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Research — Dr. Nagarjuna Sunkara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#14253D;--navy-deep:#0D1B2E;--gold:#A88950;--gold-light:#C4A86A;--ivory:#F7F4EC;--ivory-soft:#F0EDE4;--white:#FFFFFF;--text-dark:#1A1A2E;--text-mid:#4A4A6A;--text-light:#7A7A9A;--border:#E2DDD3;--shadow:rgba(20,37,61,0.10);--transition:0.3s cubic-bezier(0.4,0,0.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text-dark);background:var(--ivory);line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;background:var(--navy);box-shadow:0 2px 24px var(--shadow)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-brand{font-family:'Playfair Display',serif;color:var(--white);font-size:1rem;font-weight:600}
+.nav-links{display:flex;align-items:center;gap:0.15rem;list-style:none}
+.nav-links a{font-size:0.82rem;font-weight:500;color:rgba(255,255,255,0.75);padding:0.45rem 0.75rem;border-radius:4px;transition:color var(--transition),background var(--transition)}
+.nav-links a:hover,.nav-links a.active{color:var(--gold-light);background:rgba(255,255,255,0.06)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px}
+.nav-drawer{position:fixed;inset:0;z-index:200;pointer-events:none}
+.nav-drawer-bg{position:absolute;inset:0;background:rgba(13,27,46,0.85);opacity:0;transition:opacity var(--transition)}
+.nav-drawer-panel{position:absolute;top:0;right:0;bottom:0;width:275px;background:var(--navy);padding:4.5rem 1.75rem 2rem;transform:translateX(100%);transition:transform var(--transition);display:flex;flex-direction:column;gap:0.2rem}
+.nav-drawer.open{pointer-events:all}
+.nav-drawer.open .nav-drawer-bg{opacity:1}
+.nav-drawer.open .nav-drawer-panel{transform:translateX(0)}
+.drawer-link{font-size:1rem;font-weight:500;color:rgba(255,255,255,0.78);padding:0.85rem 1rem;border-radius:5px;border-bottom:1px solid rgba(255,255,255,0.06);transition:var(--transition)}
+.drawer-link:hover{color:var(--gold-light)}
+.drawer-close{position:absolute;top:1.1rem;right:1.4rem;background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.55);font-size:1.35rem;padding:0.25rem}
+.page-header{background:var(--navy);padding:6rem 2rem 3.5rem;margin-top:68px}
+.page-header-inner{max-width:1200px;margin:0 auto}
+.breadcrumb{font-size:0.75rem;color:rgba(255,255,255,0.4);margin-bottom:1rem}
+.breadcrumb a{color:rgba(255,255,255,0.4)}
+.breadcrumb span{color:var(--gold)}
+.page-header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--white);margin-bottom:0.5rem}
+.page-header p{font-size:1rem;color:rgba(255,255,255,0.6);max-width:580px}
+.content{max-width:1200px;margin:0 auto;padding:4rem 2rem}
+.section-label{font-size:0.68rem;letter-spacing:0.16em;color:var(--gold);font-weight:500;margin-bottom:0.75rem;text-transform:uppercase}
+.section-heading{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:700;color:var(--text-dark);line-height:1.2;margin-bottom:1rem}
+.divider{width:40px;height:2px;background:var(--gold);margin-bottom:2rem}
+.section-sep{border:none;border-top:1px solid var(--border);margin:3.5rem 0}
+/* PHILOSOPHY PULL QUOTE */
+.pull-quote{border-left:3px solid var(--gold);padding:1.5rem 2rem;margin-bottom:2.5rem;background:var(--white);border-radius:0 8px 8px 0}
+.pull-quote p{font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:var(--text-dark);line-height:1.8}
+/* CLUSTERS */
+.cluster-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem}
+.cluster-card{padding:1.75rem;border:1px solid var(--border);border-radius:10px;background:var(--white);position:relative;overflow:hidden}
+.cluster-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:var(--gold)}
+.cluster-num{font-size:2.5rem;font-weight:700;color:rgba(168,137,80,0.12);font-family:'Playfair Display',serif;line-height:1;margin-bottom:0.5rem}
+.cluster-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--text-dark);margin-bottom:0.75rem}
+.cluster-card p{font-size:0.875rem;color:var(--text-mid);line-height:1.7;margin-bottom:1rem}
+.cluster-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.tag{font-size:0.72rem;padding:0.25rem 0.65rem;background:var(--ivory-soft);border:1px solid var(--border);border-radius:3px;color:var(--text-mid)}
+/* PHD THESIS BLOCK */
+.thesis-block{background:var(--navy);border-radius:10px;padding:2.5rem;margin-top:1.5rem}
+.thesis-block h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--gold-light);margin-bottom:0.5rem}
+.thesis-block .thesis-title{font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);line-height:1.6;font-style:italic;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid rgba(255,255,255,0.12)}
+.thesis-meta{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem 1.5rem}
+.thesis-meta-item{font-size:0.825rem}
+.thesis-meta-item .label{color:rgba(255,255,255,0.4);display:block;margin-bottom:0.1rem;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.08em}
+.thesis-meta-item .value{color:rgba(255,255,255,0.8)}
+/* IN PROGRESS */
+.wip-card{padding:1.5rem;border:1px dashed var(--gold);border-radius:8px;background:rgba(168,137,80,0.04);margin-bottom:1rem}
+.wip-card .wip-badge{font-size:0.68rem;letter-spacing:0.1em;color:var(--gold);font-weight:600;margin-bottom:0.5rem;text-transform:uppercase}
+.wip-card h4{font-family:'Playfair Display',serif;font-size:1rem;color:var(--text-dark);margin-bottom:0.4rem}
+.wip-card p{font-size:0.85rem;color:var(--text-mid);line-height:1.65}
+/* PROFILES */
+.profiles-row{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.5rem}
+.profile-link{display:flex;align-items:center;gap:0.5rem;padding:0.7rem 1.3rem;background:var(--white);border:1px solid var(--border);border-radius:6px;font-size:0.875rem;font-weight:500;color:var(--navy);transition:all var(--transition)}
+.profile-link:hover{border-color:var(--gold);color:var(--gold)}
+footer{background:var(--navy-deep);padding:2rem;text-align:center;border-top:1px solid rgba(255,255,255,0.07)}
+footer p{font-size:0.775rem;color:rgba(255,255,255,0.32)}
+@media(max-width:900px){.cluster-grid{grid-template-columns:1fr}.thesis-meta{grid-template-columns:1fr}.nav-links{display:none}.nav-toggle{display:flex}}
+@media(max-width:580px){.content{padding:2.5rem 1.25rem}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">Dr. Nagarjuna Sunkara</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teaching.html">Teaching</a></li>
+      <li><a href="research.html" class="active">Research</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="api.html">API</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <div class="nav-drawer-bg" onclick="toggleDrawer()"></div>
+  <div class="nav-drawer-panel">
+    <button class="drawer-close" onclick="toggleDrawer()">✕</button>
+    <a class="drawer-link" href="index.html">Home</a>
+    <a class="drawer-link" href="about.html">About</a>
+    <a class="drawer-link" href="teaching.html">Teaching</a>
+    <a class="drawer-link" href="research.html">Research</a>
+    <a class="drawer-link" href="publications.html">Publications</a>
+    <a class="drawer-link" href="experience.html">Experience</a>
+    <a class="drawer-link" href="api.html">API</a>
+    <a class="drawer-link" href="contact.html">Contact</a>
+  </div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> / <span>Research</span></div>
+    <h1>Research</h1>
+    <p>People, Organisations &amp; Communities — Four Intersecting Research Clusters</p>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- PHILOSOPHY -->
+  <div class="section-label">Research Philosophy</div>
+  <h2 class="section-heading">What Drives My Research</h2>
+  <div class="divider"></div>
+  <div class="pull-quote">
+    <p>"I believe research should begin with questions that matter to people, organisations and society. My research is driven by an interest in understanding how workplaces, technology, organisational practices and human behaviour influence individual and organisational outcomes. I find myself particularly drawn to questions around employability, skill development, psychological safety, inclusive workplaces, people analytics and the changing nature of work in the age of artificial intelligence. I aim to produce research that goes beyond academic publication and contributes to practical improvements in organisational decision-making, employee well-being, educational practices and career readiness. Ultimately, I want my research to bridge the gap between theory and practice and create knowledge that is meaningful, relevant and capable of making a positive difference in people's lives."</p>
+  </div>
+
+  <!-- CLUSTERS -->
+  <div class="section-label">Research Clusters</div>
+  <h2 class="section-heading">Four Areas of Scholarly Focus</h2>
+  <div class="divider"></div>
+  <div class="cluster-grid">
+    <div class="cluster-card">
+      <div class="cluster-num">01</div>
+      <h3>People Analytics &amp; Future of Work</h3>
+      <p>Examining how data-driven HR practices, AI-enabled decision-making and workforce analytics are transforming the nature of employment, management and organisational decision-making. Particular interest in algorithmic management, predictive HR, and the ethical dimensions of people data.</p>
+      <div class="cluster-tags"><span class="tag">HR Analytics</span><span class="tag">AI in HRM</span><span class="tag">Future of Work</span><span class="tag">Workforce Data</span></div>
+    </div>
+    <div class="cluster-card">
+      <div class="cluster-num">02</div>
+      <h3>Graduate Employability &amp; Higher Education</h3>
+      <p>Exploring the gap between what management education produces and what employers expect — with a focus on skill development, career readiness, the role of academic institutions and the student's own agency in building professional competence.</p>
+      <div class="cluster-tags"><span class="tag">Employability Skills</span><span class="tag">Management Education</span><span class="tag">Industry–Academia Gap</span><span class="tag">Career Readiness</span></div>
+    </div>
+    <div class="cluster-card">
+      <div class="cluster-num">03</div>
+      <h3>Organisational Behaviour &amp; Well-being</h3>
+      <p>Investigating the psychological dimensions of work — including psychological safety, work engagement, burnout, identity at work and how organisational culture shapes individual well-being. Informed by training in psychology and counselling and grounded in management research.</p>
+      <div class="cluster-tags"><span class="tag">Psychological Safety</span><span class="tag">Work Engagement</span><span class="tag">OB</span><span class="tag">Organisational Culture</span></div>
+    </div>
+    <div class="cluster-card">
+      <div class="cluster-num">04</div>
+      <h3>Inclusion, Diversity &amp; Community Well-being</h3>
+      <p>Research at the intersection of management, social work and community development — examining LGBTQIA+ inclusion in workplaces, DEI practices, social capital and the role of organisations and communities in supporting marginalised individuals.</p>
+      <div class="cluster-tags"><span class="tag">DEI</span><span class="tag">LGBTQIA+ Inclusion</span><span class="tag">Social Capital</span><span class="tag">Community Development</span></div>
+    </div>
+  </div>
+
+  <hr class="section-sep">
+
+  <!-- DOCTORAL RESEARCH -->
+  <div class="section-label">Doctoral Research</div>
+  <h2 class="section-heading">PhD Thesis</h2>
+  <div class="divider"></div>
+  <div class="thesis-block">
+    <h3>Completed Doctoral Research · 2022</h3>
+    <div class="thesis-title">Employability Skills of Management Graduates — Perceptions of Employers, Educators, and MBA Students in Selected Districts of Andhra Pradesh, India</div>
+    <div class="thesis-meta">
+      <div class="thesis-meta-item"><span class="label">University</span><span class="value">Acharya Nagarjuna University, Guntur</span></div>
+      <div class="thesis-meta-item"><span class="label">Discipline</span><span class="value">Commerce &amp; Management</span></div>
+      <div class="thesis-meta-item"><span class="label">Year of Award</span><span class="value">2022</span></div>
+      <div class="thesis-meta-item"><span class="label">Methodology</span><span class="value">Mixed Methods — Survey &amp; Qualitative</span></div>
+    </div>
+  </div>
+  <p style="font-size:0.9rem;color:var(--text-mid);margin-top:1.25rem;line-height:1.8">This research examined the employability skills of management graduates by triangulating the perspectives of three distinct stakeholder groups — employers hiring MBA graduates, educators delivering management programmes, and students themselves. The study was conducted across selected districts of Andhra Pradesh and explored the gaps between skill expectations, skill delivery and self-perceived skill readiness. The findings have contributed to ongoing conversations about curriculum reform, graduate attributes and the design of management education in India.</p>
+
+  <hr class="section-sep">
+
+  <!-- WORK IN PROGRESS -->
+  <div class="section-label">Current Work</div>
+  <h2 class="section-heading">Research in Progress</h2>
+  <div class="divider"></div>
+  <div class="wip-card">
+    <div class="wip-badge">Manuscript in Preparation</div>
+    <h4>Digital Transformation and HR Practices in Indian SMEs</h4>
+    <p>Examining the adoption of digital HR tools, people analytics platforms and AI-enabled HR processes in small and medium enterprises in the Hyderabad region, with a focus on implementation challenges, capability gaps and organisational readiness.</p>
+  </div>
+  <div class="wip-card">
+    <div class="wip-badge">Research Interest · Developing</div>
+    <h4>Psychological Safety and Performance in Hybrid Work Environments</h4>
+    <p>An exploratory investigation into how the transition to hybrid and remote work arrangements has affected team psychological safety, communication patterns and individual performance in Indian knowledge-sector organisations.</p>
+  </div>
+  <div class="wip-card">
+    <div class="wip-badge">Research Interest · Developing</div>
+    <h4>LGBTQIA+ Inclusion Policies and Lived Workplace Experiences</h4>
+    <p>A qualitative study examining the gap between organisational DEI policies and the actual lived experiences of LGBTQIA+ employees in Indian corporate settings — drawing on community engagement and existing research partnerships.</p>
+  </div>
+
+  <hr class="section-sep">
+
+  <!-- ACADEMIC PROFILES -->
+  <div class="section-label">Academic Profiles</div>
+  <h2 class="section-heading">Find My Research Online</h2>
+  <div class="divider"></div>
+  <div class="profiles-row">
+    <a href="https://scholar.google.com/citations?user=BulEsx0AAAAJ&hl=en" target="_blank" class="profile-link">↗ Google Scholar</a>
+    <a href="https://orcid.org/0009-0009-3459-6117" target="_blank" class="profile-link">↗ ORCID · 0009-0009-3459-6117</a>
+    <a href="https://www.researchgate.net/profile/Nagarjuna-Sunkara" target="_blank" class="profile-link">↗ ResearchGate</a>
+    <a href="publications.html" class="profile-link">→ Full Publications List</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Dr. Nagarjuna Sunkara · Assistant Professor, Department of Business Management, St. Mary's College, Yousufguda, Hyderabad · <a href="mailto:nagarjuna@stmaryscollege.in" style="color:rgba(255,255,255,0.4)">nagarjuna@stmaryscollege.in</a></p>
+</footer>
+<script>function toggleDrawer(){document.getElementById('navDrawer').classList.toggle('open')}</script>
+</body>
+</html>

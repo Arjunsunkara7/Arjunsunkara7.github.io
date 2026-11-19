@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Academic Performance Indicator — Dr. Nagarjuna Sunkara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#14253D;--navy-deep:#0D1B2E;--gold:#A88950;--gold-light:#C4A86A;--ivory:#F7F4EC;--ivory-soft:#F0EDE4;--white:#FFFFFF;--text-dark:#1A1A2E;--text-mid:#4A4A6A;--text-light:#7A7A9A;--border:#E2DDD3;--shadow:rgba(20,37,61,0.10);--transition:0.3s cubic-bezier(0.4,0,0.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text-dark);background:var(--ivory);line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;background:var(--navy);box-shadow:0 2px 24px var(--shadow)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-brand{font-family:'Playfair Display',serif;color:var(--white);font-size:1rem;font-weight:600}
+.nav-links{display:flex;align-items:center;gap:0.15rem;list-style:none}
+.nav-links a{font-size:0.82rem;font-weight:500;color:rgba(255,255,255,0.75);padding:0.45rem 0.75rem;border-radius:4px;transition:color var(--transition),background var(--transition)}
+.nav-links a:hover,.nav-links a.active{color:var(--gold-light);background:rgba(255,255,255,0.06)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px}
+.nav-drawer{position:fixed;inset:0;z-index:200;pointer-events:none}
+.nav-drawer-bg{position:absolute;inset:0;background:rgba(13,27,46,0.85);opacity:0;transition:opacity var(--transition)}
+.nav-drawer-panel{position:absolute;top:0;right:0;bottom:0;width:275px;background:var(--navy);padding:4.5rem 1.75rem 2rem;transform:translateX(100%);transition:transform var(--transition);display:flex;flex-direction:column;gap:0.2rem}
+.nav-drawer.open{pointer-events:all}
+.nav-drawer.open .nav-drawer-bg{opacity:1}
+.nav-drawer.open .nav-drawer-panel{transform:translateX(0)}
+.drawer-link{font-size:1rem;font-weight:500;color:rgba(255,255,255,0.78);padding:0.85rem 1rem;border-radius:5px;border-bottom:1px solid rgba(255,255,255,0.06);transition:var(--transition)}
+.drawer-link:hover{color:var(--gold-light)}
+.drawer-close{position:absolute;top:1.1rem;right:1.4rem;background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.55);font-size:1.35rem;padding:0.25rem}
+.page-header{background:var(--navy);padding:6rem 2rem 3.5rem;margin-top:68px}
+.page-header-inner{max-width:1200px;margin:0 auto}
+.breadcrumb{font-size:0.75rem;color:rgba(255,255,255,0.4);margin-bottom:1rem}
+.breadcrumb a{color:rgba(255,255,255,0.4)}
+.breadcrumb span{color:var(--gold)}
+.page-header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--white);margin-bottom:0.5rem}
+.page-header .subtitle{font-size:0.8rem;color:rgba(255,255,255,0.4);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem}
+.page-header p{font-size:1rem;color:rgba(255,255,255,0.6);max-width:580px}
+.content{max-width:1200px;margin:0 auto;padding:4rem 2rem}
+.section-label{font-size:0.68rem;letter-spacing:0.16em;color:var(--gold);font-weight:500;margin-bottom:0.75rem;text-transform:uppercase}
+.section-heading{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:700;color:var(--text-dark);line-height:1.2;margin-bottom:1rem}
+.divider{width:40px;height:2px;background:var(--gold);margin-bottom:2rem}
+.section-sep{border:none;border-top:1px solid var(--border);margin:3.5rem 0}
+/* AY BADGE */
+.ay-banner{background:var(--navy);border-radius:8px;padding:1.25rem 1.75rem;margin-bottom:2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.ay-banner .ay-label{font-size:0.75rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.2rem}
+.ay-banner .ay-value{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold)}
+.ay-banner .ay-note{font-size:0.8rem;color:rgba(255,255,255,0.45);font-style:italic}
+/* CATEGORY BLOCKS */
+.api-category{margin-bottom:2.5rem}
+.cat-header{padding:1rem 1.5rem;background:var(--navy);border-radius:8px 8px 0 0;display:flex;align-items:center;gap:1rem}
+.cat-code{font-size:0.75rem;font-weight:600;color:var(--gold);letter-spacing:0.1em;white-space:nowrap}
+.cat-title{font-family:'Playfair Display',serif;font-size:1rem;color:var(--white)}
+.cat-body{background:var(--white);border:1px solid var(--border);border-top:none;border-radius:0 0 8px 8px;overflow:hidden}
+/* TABLE */
+.api-table{width:100%;border-collapse:collapse}
+.api-table th{font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-light);padding:0.75rem 1.25rem;border-bottom:1px solid var(--border);background:var(--ivory-soft);text-align:left}
+.api-table td{padding:0.85rem 1.25rem;border-bottom:1px solid var(--border);font-size:0.875rem;color:var(--text-mid);vertical-align:top}
+.api-table tr:last-child td{border-bottom:none}
+.api-table .item-label{color:var(--text-dark);font-weight:500;line-height:1.5}
+.api-table .item-detail{font-size:0.8rem;color:var(--text-light);margin-top:0.2rem}
+.placeholder{color:var(--text-light);font-style:italic;font-size:0.82rem}
+.score-cell{font-weight:600;color:var(--navy);font-size:0.9rem}
+/* INFO NOTE */
+.info-note{padding:1rem 1.25rem;background:rgba(168,137,80,0.06);border-left:3px solid var(--gold);border-radius:4px;margin-bottom:2rem;font-size:0.85rem;color:var(--text-mid);line-height:1.6}
+footer{background:var(--navy-deep);padding:2rem;text-align:center;border-top:1px solid rgba(255,255,255,0.07)}
+footer p{font-size:0.775rem;color:rgba(255,255,255,0.32)}
+@media(max-width:900px){.nav-links{display:none}.nav-toggle{display:flex}.api-table th:last-child,.api-table td:last-child{display:none}}
+@media(max-width:580px){.content{padding:2.5rem 1.25rem}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">Dr. Nagarjuna Sunkara</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teaching.html">Teaching</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="api.html" class="active">API</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <div class="nav-drawer-bg" onclick="toggleDrawer()"></div>
+  <div class="nav-drawer-panel">
+    <button class="drawer-close" onclick="toggleDrawer()">✕</button>
+    <a class="drawer-link" href="index.html">Home</a>
+    <a class="drawer-link" href="about.html">About</a>
+    <a class="drawer-link" href="teaching.html">Teaching</a>
+    <a class="drawer-link" href="research.html">Research</a>
+    <a class="drawer-link" href="publications.html">Publications</a>
+    <a class="drawer-link" href="experience.html">Experience</a>
+    <a class="drawer-link" href="api.html">API</a>
+    <a class="drawer-link" href="contact.html">Contact</a>
+  </div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> / <span>API</span></div>
+    <div class="subtitle">Academic Performance Indicator</div>
+    <h1>API Record</h1>
+    <p>St. Mary's College Annual Academic Appraisal — Structured Evidence Record</p>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="info-note">
+    This page documents Dr. Nagarjuna Sunkara's Academic Performance Indicator (API) — the structured self-appraisal and evidence record maintained as part of St. Mary's College's annual academic performance review. The API framework assesses faculty contributions across three categories: Teaching &amp; Learning (B-I), Co-Curricular &amp; Extension Activities (B-II), and Research &amp; Institution Building (B-III).
+  </div>
+
+  <div class="ay-banner">
+    <div>
+      <div class="ay-label">Academic Year</div>
+      <div class="ay-value">2026 – 27 (First Year)</div>
+    </div>
+    <div>
+      <div class="ay-label">Department</div>
+      <div class="ay-value">Business Management · St. Mary's College</div>
+    </div>
+    <div class="ay-note">Data to be populated at year-end review</div>
+  </div>
+
+  <!-- B-I: TEACHING & LEARNING -->
+  <div class="api-category">
+    <div class="cat-header">
+      <div class="cat-code">B — I</div>
+      <div class="cat-title">Teaching, Learning &amp; Evaluation</div>
+    </div>
+    <div class="cat-body">
+      <table class="api-table">
+        <thead>
+          <tr>
+            <th style="width:40%">Activity / Evidence</th>
+            <th>Details</th>
+            <th style="width:120px">Score / Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="item-label">Subjects Taught</div><div class="item-detail">AY 2026–27</div></td>
+            <td>Business Analytics · Business Economics · Advanced Data Visualisation (BBA)</td>
+            <td class="score-cell"><span class="placeholder">— AY end</span></td>
+          </tr>
+          <tr>
+            <td><div class="item-label">Lecture Hours Delivered</div><div class="item-detail">Total contact hours per semester</div></td>
+            <td><span class="placeholder">To be updated at semester close</span></td>
+            <td><span class="placeholder">—</span></td>
+          </tr>
+          <tr>
+            <td><div class="item-label">Student Feedback Score</div><div class="item-detail">Collected via institutional mechanism</div></td>
+            <td><span class="placeholder">To be updated after feedback cycle</span></td>
+            <td><span class="placeholder">—</span></td>
+          </tr>
+          <tr>
+            <td><div class="item-label">Course Material Prepared</div><div class="item-detail">Lecture notes, slides, assessments</div></td>
+            <td>Developed course notes and slide decks for all three subjects; real-world dataset exercises for Business Analytics</td>
+            <td class="score-cell"><span class="placeholder">—</span></td>
+          </tr>
+          <tr>
+            <td><div class="item-label">Innovations in Teaching</div><div class="item-detail">New methods, tools, approaches used</div></td>
+            <td>Live dataset integration (CMIE, EPWRF); industry case-based teaching; peer-learning seminar format</td>
+            <td class="score-cell"><span class="placeholder">—</span></td>
+          </tr>
+          <tr>
+            <td><div class="item-label">Class Mentoring</div><div class="item-detail">Student mentor responsibilities</div></td>
+            <td>Assigned Class Mentor — BBA batch. Regular academic and personal guidance sessions.</td>
+            <td class="score-cell"><span class="placeholder">—</span></td>
+          </tr>
+          <tr>
+            <td><div class="item-label">Internal Examination &amp; Assessment</div><div class="item-detail">Question setting, evaluation, results</div></td>
+            <td><span class="placeholder">To be updated at assessment close</span></td>
+            <td><span class="placeholder">—</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- B-II: CO-CURRICULAR & EXTENSION -->
+  <div class="api-category">
+    <div class="cat-header">
+      <div class="cat-code">B — II</div>
+      <div class="cat-title">Co-Curricular, Extension &amp; Professional Activities</div>
+    </div>
+    <div class="cat-body">
+      <table class="api-table">
+        <thead>
+          <tr>
+            <th style="width:40%">Activity / Evidence</th>
+            <th>Details</th>
+            <th style="width:120px">Score / Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="item-label">Community Outreach Programme</div><div class="item-detail">Organised / Facilitated</div></td>
+            <td>Communication Skills 101 · Government High School, Jawahar Nagar, Hyderabad · July 2026 · ~300 students (Classes VI–X). Ongoing initiative.</td>
+            <td class="score-cell"><span class="placeholder">—</span></td>
+          </tr>
+          <tr>
+            <td><div class="item-label">Guest Lectures / Invited Talks</div></td>
+            <td><span class="placeholder">To be updated as invitations are fulfilled</span></td>
+            <td><span class="placeholder">—</span></td>
+          </tr>
+          <tr>
+            <td><div class="item-label">Student Development Activities</div><div class="item-detail">Workshops, career sessions, seminars</div></td>
+            <td>Career readiness sessions — resume writing, interview skills, professional communication for BBA students</td>
+            <td class="score-cell"><span class="placeholder">—</span></td>
+          </tr>
+          <tr>
+            <td><div class="item-label">Participation in Institutional Committees</div></td>
+            <td><span class="placeholder">To be updated as committee assignments are confirmed</span></td>
+            <td><span class="placeholder">—</span></td>
+          </tr>
+          <tr>
+            <td><div class="item-label">Faculty Development Programmes Attended</div></td>
+            <td>
+              Intro to Panel Data Analysis — STATA · Dayananda Sagar College, Bengaluru · July 2026<br>
+              Innovative Teaching &amp; Learning Pedagogy · Research Foundation of India / Parul University · July–Aug 2026<br>
+              Extensible AI for Smarter Research · Research Foundation of India / Rama University · Sep 2026
+            </td>
+            <td class="score-cell"><span class="placeholder">—</span></td>
+          </tr>
+          <tr>
+            <td><div class="item-label">Professional Membership / Certifications</div></td>
+            <td>SHRM-CP (Society for Human Resource Management) · 2023<br>People Analytics Certification — University of Pennsylvania</td>
+            <td class="score-cell"><span class="placeholder">—</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- B-III: RESEARCH & INSTITUTION BUILDING -->
+  <div class="api-category">
+    <div class="cat-header">
+      <div class="cat-code">B — III</div>
+      <div class="cat-title">Research, Consultancy &amp; Institution Building</div>
+    </div>
+    <div class="cat-body">
+      <table class="api-table">
+        <thead>
+          <tr>
+            <th style="width:40%">Activity / Evidence</th>
+            <th>Details</th>
+            <th style="width:120px">Score / Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="item-label">Journal Articles Published</div><div class="item-detail">AY 2026–27 or in press</div></td>
+            <td><span class="placeholder">To be updated — manuscript in preparation</span></td>
+            <td><span class="placeholder">—</span></td>
+          </tr>
+          <tr>
+            <td><div class="item-label">Conference Papers Presented</div><div class="item-detail">AY 2026–27</div></td>
+            <td><span class="placeholder">To be updated as conferences are attended</span></td>
+            <td><span class="placeholder">—</span></td>
+          </tr>
+          <tr>
+            <td><div class="item-label">Book Chapters</div><div class="item-detail">Published / Accepted AY 2026–27</div></td>
+            <td><span class="placeholder">To be updated</span></td>
+            <td><span class="placeholder">—</span></td>
+          </tr>
+          <tr>
+            <td><div class="item-label">Cumulative Publications (prior to AY 2026–27)</div></td>
+            <td>3 Journal Articles · 20 Conference Papers · 4 ISBN Book Chapters · <a href="publications.html" style="color:var(--gold)">View full list →</a></td>
+            <td class="score-cell">27</td>
+          </tr>
+          <tr>
+            <td><div class="item-label">PhD Awarded</div></td>
+            <td>Acharya Nagarjuna University · Commerce &amp; Management · 2022</td>
+            <td class="score-cell">Completed</td>
+          </tr>
+          <tr>
+            <td><div class="item-label">Research Projects / Grants</div></td>
+            <td><span class="placeholder">To be updated — no active funded project at present</span></td>
+            <td><span class="placeholder">—</span></td>
+          </tr>
+          <tr>
+            <td><div class="item-label">Academic Profiles — Verified</div></td>
+            <td>
+              Google Scholar · ORCID (0009-0009-3459-6117) · ResearchGate · LinkedIn
+            </td>
+            <td class="score-cell"><span class="placeholder">—</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Dr. Nagarjuna Sunkara · Assistant Professor, Department of Business Management, St. Mary's College, Yousufguda, Hyderabad · <a href="mailto:nagarjuna@stmaryscollege.in" style="color:rgba(255,255,255,0.4)">nagarjuna@stmaryscollege.in</a></p>
+</footer>
+<script>function toggleDrawer(){document.getElementById('navDrawer').classList.toggle('open')}</script>
+</body>
+</html>

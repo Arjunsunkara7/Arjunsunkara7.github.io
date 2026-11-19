@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>About — Dr. Nagarjuna Sunkara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#14253D;--navy-deep:#0D1B2E;--gold:#A88950;--gold-light:#C4A86A;--ivory:#F7F4EC;--ivory-soft:#F0EDE4;--white:#FFFFFF;--text-dark:#1A1A2E;--text-mid:#4A4A6A;--text-light:#7A7A9A;--border:#E2DDD3;--shadow:rgba(20,37,61,0.10);--transition:0.3s cubic-bezier(0.4,0,0.2,1)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--ivory:#1C2535;--ivory-soft:#161F2E;--white:#1A2538;--text-dark:#EDE8DC;--text-mid:#B0ACBF;--border:#2A3650;--shadow:rgba(0,0,0,0.3)}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text-dark);background:var(--ivory);line-height:1.7;overflow-x:hidden}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;background:var(--navy);box-shadow:0 2px 24px var(--shadow)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-brand{font-family:'Playfair Display',serif;color:var(--white);font-size:1rem;font-weight:600}
+.nav-links{display:flex;align-items:center;gap:0.15rem;list-style:none}
+.nav-links a{font-size:0.82rem;font-weight:500;color:rgba(255,255,255,0.75);padding:0.45rem 0.75rem;border-radius:4px;transition:color var(--transition),background var(--transition)}
+.nav-links a:hover,.nav-links a.active{color:var(--gold-light);background:rgba(255,255,255,0.06)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px}
+.nav-drawer{position:fixed;inset:0;z-index:200;pointer-events:none}
+.nav-drawer-bg{position:absolute;inset:0;background:rgba(13,27,46,0.85);opacity:0;transition:opacity var(--transition)}
+.nav-drawer-panel{position:absolute;top:0;right:0;bottom:0;width:275px;background:var(--navy);padding:4.5rem 1.75rem 2rem;transform:translateX(100%);transition:transform var(--transition);display:flex;flex-direction:column;gap:0.2rem}
+.nav-drawer.open{pointer-events:all}
+.nav-drawer.open .nav-drawer-bg{opacity:1}
+.nav-drawer.open .nav-drawer-panel{transform:translateX(0)}
+.drawer-link{font-size:1rem;font-weight:500;color:rgba(255,255,255,0.78);padding:0.85rem 1rem;border-radius:5px;border-bottom:1px solid rgba(255,255,255,0.06);transition:var(--transition)}
+.drawer-link:hover{color:var(--gold-light)}
+.drawer-close{position:absolute;top:1.1rem;right:1.4rem;background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.55);font-size:1.35rem;padding:0.25rem}
+/* PAGE HEADER */
+.page-header{background:var(--navy);padding:6rem 2rem 3.5rem;margin-top:68px}
+.page-header-inner{max-width:1200px;margin:0 auto}
+.breadcrumb{font-size:0.75rem;color:rgba(255,255,255,0.4);letter-spacing:0.08em;margin-bottom:1rem}
+.breadcrumb a{color:rgba(255,255,255,0.4)}
+.breadcrumb span{color:var(--gold)}
+.page-header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--white);margin-bottom:0.5rem}
+.page-header p{font-size:1rem;color:rgba(255,255,255,0.6);max-width:580px}
+/* LAYOUT */
+.content{max-width:1200px;margin:0 auto;padding:4rem 2rem}
+.two-col{display:grid;grid-template-columns:2fr 1fr;gap:4rem;align-items:start}
+.section-label{font-size:0.68rem;letter-spacing:0.16em;color:var(--gold);font-weight:500;margin-bottom:0.75rem;text-transform:uppercase}
+.section-heading{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:700;color:var(--text-dark);line-height:1.2;margin-bottom:1rem}
+.divider{width:40px;height:2px;background:var(--gold);margin-bottom:2rem}
+.prose p{font-size:1rem;color:var(--text-mid);line-height:1.85;margin-bottom:1.2rem}
+.prose p:first-child{font-size:1.05rem;color:var(--text-dark)}
+/* SIDEBAR */
+.sidebar{display:flex;flex-direction:column;gap:1.5rem}
+.sidebar-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:1.5rem;border-top:3px solid var(--gold)}
+.sidebar-card h3{font-family:'Playfair Display',serif;font-size:1rem;color:var(--text-dark);margin-bottom:1rem;font-weight:600}
+/* QUALIFICATIONS */
+.qual-list{display:flex;flex-direction:column;gap:0.6rem;margin-top:2rem}
+.qual-item{padding:0.9rem 1.1rem;background:var(--white);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:5px;display:grid;grid-template-columns:auto 1fr;gap:0 0.85rem;align-items:start}
+.qual-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:0.52rem;flex-shrink:0}
+.qual-title{font-size:0.875rem;font-weight:600;color:var(--text-dark);line-height:1.4;margin-bottom:0.15rem}
+.qual-meta{font-size:0.775rem;color:var(--text-mid);line-height:1.45}
+.qual-year{font-size:0.68rem;color:var(--gold);font-weight:600;letter-spacing:0.07em;margin-top:0.2rem;display:block;text-transform:uppercase}
+/* COMMUNITY */
+.comm-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:2rem}
+.comm-card{padding:1.35rem 1.4rem;background:var(--navy);border-radius:8px}
+.comm-card h4{font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--gold-light);margin-bottom:0.5rem}
+.comm-card p{font-size:0.835rem;color:rgba(255,255,255,0.62);line-height:1.7}
+/* CERTIFICATIONS */
+.cert-row{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.5rem}
+.cert-tag{font-size:0.775rem;padding:0.3rem 0.75rem;background:var(--ivory-soft);border:1px solid var(--border);border-radius:4px;color:var(--text-mid)}
+/* SECTION DIVIDER */
+.section-sep{border:none;border-top:1px solid var(--border);margin:3.5rem 0}
+/* FOOTER */
+footer{background:var(--navy-deep);padding:2rem 2rem;text-align:center;border-top:1px solid rgba(255,255,255,0.07);margin-top:0}
+footer p{font-size:0.775rem;color:rgba(255,255,255,0.32)}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.7rem 1.6rem;border-radius:4px;font-size:0.875rem;font-weight:500;letter-spacing:0.03em;transition:all var(--transition);cursor:pointer;border:none}
+.btn-gold{background:var(--gold);color:var(--navy-deep)}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-1px)}
+@media(max-width:900px){.two-col{grid-template-columns:1fr}.comm-grid{grid-template-columns:1fr}.nav-links{display:none}.nav-toggle{display:flex}}
+@media(max-width:580px){.content{padding:2.5rem 1.25rem}}
+</style>
+</head>
+<body>
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">Dr. Nagarjuna Sunkara</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="teaching.html">Teaching</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="api.html">API</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <div class="nav-drawer-bg" onclick="toggleDrawer()"></div>
+  <div class="nav-drawer-panel">
+    <button class="drawer-close" onclick="toggleDrawer()">✕</button>
+    <a class="drawer-link" href="index.html">Home</a>
+    <a class="drawer-link" href="about.html">About</a>
+    <a class="drawer-link" href="teaching.html">Teaching</a>
+    <a class="drawer-link" href="research.html">Research</a>
+    <a class="drawer-link" href="publications.html">Publications</a>
+    <a class="drawer-link" href="experience.html">Experience</a>
+    <a class="drawer-link" href="api.html">API</a>
+    <a class="drawer-link" href="contact.html">Contact</a>
+  </div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> / <span>About</span></div>
+    <h1>About</h1>
+    <p>Interdisciplinary Academic & Researcher — People, Organisations & Communities</p>
+  </div>
+</div>
+
+<div class="content">
+  <div class="two-col">
+    <!-- MAIN BIOGRAPHY -->
+    <div>
+      <div class="section-label">Biography</div>
+      <h2 class="section-heading">An Intentional Academic Journey</h2>
+      <div class="divider"></div>
+      <div class="prose">
+        <p>Dr. Nagarjuna Sunkara is an Assistant Professor in the Department of Business Management at St. Mary's College, Yousufguda, Hyderabad. His academic and professional identity is anchored in Management and Business Analytics, enriched by an intentionally built interdisciplinary foundation spanning general psychology, counselling and psychotherapy, and social work.</p>
+        <p>His journey into academia was shaped by over a decade of corporate HR leadership across the technology, manufacturing and consulting sectors — experience that continues to inform how he approaches teaching, research and student mentoring. Working across organisations of varying scale, he developed deep expertise in HR systems, workforce analytics, talent management and organisational development before returning to full-time doctoral research.</p>
+        <p>His PhD, completed in 2022 at Acharya Nagarjuna University, examined the employability skills of management graduates from the perspectives of employers, educators and students — a question that sits at the intersection of higher education, industry expectations and social mobility. This research continues to shape his scholarly interests in graduate readiness, skill development and the evolving nature of work.</p>
+        <p>Dr. Sunkara's interdisciplinary qualifications in psychology, counselling and social work are not peripheral to his academic identity — they deepen his understanding of human behaviour, organisational life and community well-being, and reflect a sustained commitment to approaching management and analytics through a human-centred lens.</p>
+        <p>At St. Mary's College, he brings real-world datasets, industry case studies and evidence-informed approaches into the BBA classroom, teaching Business Analytics, Business Economics and Advanced Data Visualisation. He is an active class mentor and is committed to developing students' analytical thinking, professional confidence and career readiness.</p>
+        <p>Beyond the classroom, Dr. Sunkara has been actively engaged with community-based organisations working on LGBTQIA+ inclusion, educational outreach and youth development — a dimension of his professional life that he regards as integral rather than incidental to his work as an educator and researcher.</p>
+      </div>
+
+      <hr class="section-sep">
+
+      <!-- RESEARCH PHILOSOPHY -->
+      <div class="section-label">Research Philosophy</div>
+      <h2 class="section-heading">What Drives My Research</h2>
+      <div class="divider"></div>
+      <div class="prose">
+        <p>I believe research should begin with questions that matter to people, organisations and society. My research is driven by an interest in understanding how workplaces, technology, organisational practices and human behaviour influence individual and organisational outcomes.</p>
+        <p>I find myself particularly drawn to questions around employability, skill development, psychological safety, inclusive workplaces, people analytics and the changing nature of work in the age of artificial intelligence. I aim to produce research that goes beyond academic publication and contributes to practical improvements in organisational decision-making, employee well-being, educational practices and career readiness.</p>
+        <p>Ultimately, I want my research to bridge the gap between theory and practice and create knowledge that is meaningful, relevant and capable of making a positive difference in people's lives.</p>
+      </div>
+
+      <hr class="section-sep">
+
+      <!-- COMMUNITY ENGAGEMENT -->
+      <div class="section-label">Beyond the Classroom</div>
+      <h2 class="section-heading">Community Engagement</h2>
+      <div class="divider"></div>
+      <p style="font-size:1rem;color:var(--text-mid);line-height:1.8;margin-bottom:1.5rem">I believe that education, inclusion and community development are interconnected. My commitment to community engagement extends beyond the classroom through participation in community-based organisations, educational outreach and youth mentoring.</p>
+      <div class="comm-grid">
+        <div class="comm-card">
+          <h4>LGBTQIA+ Inclusion &amp; Leadership</h4>
+          <p>Actively associated with Astitvam Foundation and Liberty CBO (2022–2025) in leadership, governance and community awareness roles — including responsibilities as Treasurer and Executive Board Member.</p>
+        </div>
+        <div class="comm-card">
+          <h4>School Outreach Programme</h4>
+          <p>Organised and facilitated Communication Skills 101 at Government High School, Jawahar Nagar, Hyderabad (July 2026) — reaching approximately 300 students from Classes VI to X. Now an ongoing initiative.</p>
+        </div>
+        <div class="comm-card">
+          <h4>Youth Mentoring &amp; Capacity Building</h4>
+          <p>Regular workshops and mentoring sessions in career guidance, communication skills, employability development and confidence-building for students and young people.</p>
+        </div>
+        <div class="comm-card">
+          <h4>Community Engagement Philosophy</h4>
+          <p>Meaningful social change begins with inclusion, education and empowerment. Whether through community leadership, school outreach or individual mentoring, I aim to create accessible learning opportunities.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <div class="sidebar-card">
+        <h3>Current Position</h3>
+        <div style="font-size:0.875rem;color:var(--text-dark);font-weight:600;margin-bottom:0.25rem">Assistant Professor</div>
+        <div style="font-size:0.825rem;color:var(--text-mid);margin-bottom:0.1rem">Department of Business Management</div>
+        <div style="font-size:0.825rem;color:var(--text-mid);margin-bottom:0.1rem">St. Mary's College, Yousufguda</div>
+        <div style="font-size:0.825rem;color:var(--text-mid);margin-bottom:1rem">Hyderabad · June 2026 – Present</div>
+        <a href="contact.html" class="btn btn-gold" style="font-size:0.8rem;padding:0.6rem 1.2rem">Get in Touch</a>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Academic Profiles</h3>
+        <div style="display:flex;flex-direction:column;gap:0.6rem">
+          <a href="https://scholar.google.com/citations?user=BulEsx0AAAAJ&hl=en" target="_blank" style="font-size:0.825rem;color:var(--gold);font-weight:500;display:flex;align-items:center;gap:0.4rem">↗ Google Scholar</a>
+          <a href="https://orcid.org/0009-0009-3459-6117" target="_blank" style="font-size:0.825rem;color:var(--gold);font-weight:500;display:flex;align-items:center;gap:0.4rem">↗ ORCID</a>
+          <a href="https://www.researchgate.net/profile/Nagarjuna-Sunkara" target="_blank" style="font-size:0.825rem;color:var(--gold);font-weight:500;display:flex;align-items:center;gap:0.4rem">↗ ResearchGate</a>
+          <a href="https://www.linkedin.com/in/arjun-sunkara/" target="_blank" style="font-size:0.825rem;color:var(--gold);font-weight:500;display:flex;align-items:center;gap:0.4rem">↗ LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Research Interests</h3>
+        <div style="display:flex;flex-direction:column;gap:0.4rem;font-size:0.825rem;color:var(--text-mid)">
+          <span>· People Analytics &amp; HR Technology</span>
+          <span>· Future of Work &amp; AI</span>
+          <span>· Graduate Employability</span>
+          <span>· Psychological Safety</span>
+          <span>· Inclusive Organisations</span>
+          <span>· Community Well-being</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- QUALIFICATIONS — full list -->
+  <hr class="section-sep">
+  <div class="section-label">Academic Qualifications</div>
+  <h2 class="section-heading">Full Qualifications Record</h2>
+  <div class="divider"></div>
+
+  <h3 style="font-size:0.8rem;letter-spacing:0.1em;color:var(--text-light);margin-bottom:1rem;font-weight:500">POSTGRADUATE &amp; DOCTORAL DEGREES</h3>
+  <div class="qual-list">
+    <div class="qual-item"><div class="qual-dot"></div><div><div class="qual-title">PhD in Commerce &amp; Management</div><div class="qual-meta">Acharya Nagarjuna University, Guntur</div><div class="qual-meta" style="font-style:italic">Thesis: Employability Skills of Management Graduates (Perceptions of Employers, Educators, and MBA Students in Selected Districts of Andhra Pradesh, India)</div><span class="qual-year">2022</span></div></div>
+    <div class="qual-item"><div class="qual-dot"></div><div><div class="qual-title">MBA — Human Resource Management &amp; Marketing</div><div class="qual-meta">NRI Institute of Technology, Guntur · First Class with Distinction</div><span class="qual-year">2013</span></div></div>
+    <div class="qual-item"><div class="qual-dot"></div><div><div class="qual-title">MS in Counselling &amp; Psychotherapy</div><div class="qual-meta">IBMS, Chittoor · First Class</div><span class="qual-year">2019</span></div></div>
+    <div class="qual-item"><div class="qual-dot"></div><div><div class="qual-title">Master of Social Work (MSW)</div><div class="qual-meta">Acharya Nagarjuna University · Distance Mode · First Class</div><span class="qual-year">2018 – 2020</span></div></div>
+    <div class="qual-item"><div class="qual-dot"></div><div><div class="qual-title">M.Sc. in General Psychology</div><div class="qual-meta">Dr. B.R. Ambedkar Open University, Hyderabad</div><span class="qual-year">2014</span></div></div>
+  </div>
+
+  <h3 style="font-size:0.8rem;letter-spacing:0.1em;color:var(--text-light);margin:2rem 0 1rem;font-weight:500">UNDERGRADUATE</h3>
+  <div class="qual-list">
+    <div class="qual-item"><div class="qual-dot"></div><div><div class="qual-title">B.Com — Management Accounting &amp; Costing</div><div class="qual-meta">JKC College, Guntur · Acharya Nagarjuna University</div><span class="qual-year">2011</span></div></div>
+  </div>
+
+  <h3 style="font-size:0.8rem;letter-spacing:0.1em;color:var(--text-light);margin:2rem 0 1rem;font-weight:500">ELIGIBILITY &amp; PROFESSIONAL CERTIFICATIONS</h3>
+  <div class="qual-list">
+    <div class="qual-item"><div class="qual-dot"></div><div><div class="qual-title">UGC-NET — Human Resource Management</div><div class="qual-meta">National Eligibility Test · University Grants Commission</div><span class="qual-year">December 2015</span></div></div>
+    <div class="qual-item"><div class="qual-dot"></div><div><div class="qual-title">AP &amp; TS SET — Management</div><div class="qual-meta">State Eligibility Test · Andhra Pradesh &amp; Telangana</div><span class="qual-year">2015</span></div></div>
+    <div class="qual-item"><div class="qual-dot"></div><div><div class="qual-title">SHRM-CP</div><div class="qual-meta">Society for Human Resource Management</div><span class="qual-year">2023</span></div></div>
+    <div class="qual-item"><div class="qual-dot"></div><div><div class="qual-title">People Analytics Certification</div><div class="qual-meta">University of Pennsylvania</div><span class="qual-year">Completed</span></div></div>
+    <div class="qual-item"><div class="qual-dot"></div><div><div class="qual-title">DEI from Hire to Retire</div><div class="qual-meta">Skillsoft</div><span class="qual-year">Completed</span></div></div>
+    <div class="qual-item"><div class="qual-dot"></div><div><div class="qual-title">PG Diploma in Counselling Psychology</div><div class="qual-meta">IBMS, Chittoor</div><span class="qual-year">2018</span></div></div>
+    <div class="qual-item"><div class="qual-dot"></div><div><div class="qual-title">Diploma in Community Mental Health for Social Workers</div><div class="qual-meta">NIMHANS Digital Academy, Bengaluru</div><span class="qual-year">June 2025</span></div></div>
+  </div>
+
+  <h3 style="font-size:0.8rem;letter-spacing:0.1em;color:var(--text-light);margin:2rem 0 1rem;font-weight:500">FACULTY DEVELOPMENT PROGRAMMES &amp; WORKSHOPS</h3>
+  <div class="cert-row">
+    <span class="cert-tag">Intro to Panel Data Analysis — STATA · Dayananda Sagar College, Bengaluru · July 2026</span>
+    <span class="cert-tag">Innovative Teaching &amp; Learning Pedagogy · Research Foundation of India / Parul University · July–Aug 2026</span>
+    <span class="cert-tag">Extensible AI for Smarter Research · Research Foundation of India / Rama University · Sep 2026</span>
+    <span class="cert-tag">Research Methodology &amp; R-Programming · Acharya Nagarjuna University (UGC-sponsored) · March 2018</span>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Dr. Nagarjuna Sunkara · Assistant Professor, Department of Business Management, St. Mary's College, Yousufguda, Hyderabad · <a href="mailto:nagarjuna@stmaryscollege.in" style="color:rgba(255,255,255,0.4)">nagarjuna@stmaryscollege.in</a></p>
+</footer>
+<script>
+function toggleDrawer(){document.getElementById('navDrawer').classList.toggle('open')}
+</script>
+</body>
+</html>
