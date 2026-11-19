@@ -13,6 +13,8 @@
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;color:var(--text-dark);background:var(--ivory);line-height:1.7;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
+
+/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;background:var(--navy);box-shadow:0 2px 24px var(--shadow)}
 .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
 .nav-brand{font-family:'Playfair Display',serif;color:var(--white);font-size:1rem;font-weight:600}
@@ -28,8 +30,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;background:va
 .nav-drawer.open .nav-drawer-bg{opacity:1}
 .nav-drawer.open .nav-drawer-panel{transform:translateX(0)}
 .drawer-link{font-size:1rem;font-weight:500;color:rgba(255,255,255,0.78);padding:0.85rem 1rem;border-radius:5px;border-bottom:1px solid rgba(255,255,255,0.06);transition:var(--transition)}
-.drawer-link:hover{color:var(--gold-light)}
+.drawer-link:hover,.drawer-link.active{color:var(--gold-light)}
 .drawer-close{position:absolute;top:1.1rem;right:1.4rem;background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.55);font-size:1.35rem;padding:0.25rem}
+
+/* PAGE HEADER */
 .page-header{background:var(--navy);padding:6rem 2rem 3.5rem;margin-top:68px}
 .page-header-inner{max-width:1200px;margin:0 auto}
 .breadcrumb{font-size:0.75rem;color:rgba(255,255,255,0.4);margin-bottom:1rem}
@@ -37,44 +41,84 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;background:va
 .breadcrumb span{color:var(--gold)}
 .page-header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--white);margin-bottom:0.5rem}
 .page-header .subtitle{font-size:0.8rem;color:rgba(255,255,255,0.4);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem}
-.page-header p{font-size:1rem;color:rgba(255,255,255,0.6);max-width:580px}
-.content{max-width:1200px;margin:0 auto;padding:4rem 2rem}
-.section-label{font-size:0.68rem;letter-spacing:0.16em;color:var(--gold);font-weight:500;margin-bottom:0.75rem;text-transform:uppercase}
-.section-heading{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:700;color:var(--text-dark);line-height:1.2;margin-bottom:1rem}
-.divider{width:40px;height:2px;background:var(--gold);margin-bottom:2rem}
-.section-sep{border:none;border-top:1px solid var(--border);margin:3.5rem 0}
-/* AY BADGE */
-.ay-banner{background:var(--navy);border-radius:8px;padding:1.25rem 1.75rem;margin-bottom:2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-.ay-banner .ay-label{font-size:0.75rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.2rem}
-.ay-banner .ay-value{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold)}
-.ay-banner .ay-note{font-size:0.8rem;color:rgba(255,255,255,0.45);font-style:italic}
-/* CATEGORY BLOCKS */
-.api-category{margin-bottom:2.5rem}
-.cat-header{padding:1rem 1.5rem;background:var(--navy);border-radius:8px 8px 0 0;display:flex;align-items:center;gap:1rem}
-.cat-code{font-size:0.75rem;font-weight:600;color:var(--gold);letter-spacing:0.1em;white-space:nowrap}
-.cat-title{font-family:'Playfair Display',serif;font-size:1rem;color:var(--white)}
-.cat-body{background:var(--white);border:1px solid var(--border);border-top:none;border-radius:0 0 8px 8px;overflow:hidden}
-/* TABLE */
-.api-table{width:100%;border-collapse:collapse}
-.api-table th{font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-light);padding:0.75rem 1.25rem;border-bottom:1px solid var(--border);background:var(--ivory-soft);text-align:left}
-.api-table td{padding:0.85rem 1.25rem;border-bottom:1px solid var(--border);font-size:0.875rem;color:var(--text-mid);vertical-align:top}
-.api-table tr:last-child td{border-bottom:none}
-.api-table .item-label{color:var(--text-dark);font-weight:500;line-height:1.5}
-.api-table .item-detail{font-size:0.8rem;color:var(--text-light);margin-top:0.2rem}
-.placeholder{color:var(--text-light);font-style:italic;font-size:0.82rem}
-.score-cell{font-weight:600;color:var(--navy);font-size:0.9rem}
+.page-header p{font-size:1rem;color:rgba(255,255,255,0.6);max-width:620px}
+
+/* CONTENT */
+.content{max-width:1100px;margin:0 auto;padding:3.5rem 2rem 5rem}
+
 /* INFO NOTE */
-.info-note{padding:1rem 1.25rem;background:rgba(168,137,80,0.06);border-left:3px solid var(--gold);border-radius:4px;margin-bottom:2rem;font-size:0.85rem;color:var(--text-mid);line-height:1.6}
-footer{background:var(--navy-deep);padding:2rem;text-align:center;border-top:1px solid rgba(255,255,255,0.07)}
-footer p{font-size:0.775rem;color:rgba(255,255,255,0.32)}
-@media(max-width:900px){.nav-links{display:none}.nav-toggle{display:flex}.api-table th:last-child,.api-table td:last-child{display:none}}
-@media(max-width:580px){.content{padding:2.5rem 1.25rem}}
+.info-note{background:white;border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:6px;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:0.875rem;color:var(--text-mid);line-height:1.7}
+.info-note strong{color:var(--text-dark)}
+
+/* YEAR BLOCK */
+.year-block{margin-bottom:3rem}
+.year-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
+.year-badge{background:var(--navy);color:var(--gold);font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;padding:0.5rem 1.25rem;border-radius:6px;white-space:nowrap}
+.year-line{flex:1;height:1px;background:var(--border)}
+.year-status{font-size:0.72rem;color:var(--gold);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;background:rgba(168,137,80,0.1);padding:0.3rem 0.75rem;border-radius:4px;white-space:nowrap}
+
+/* SEM TABS */
+.sem-tabs{display:flex;gap:0.5rem;margin-bottom:1.5rem;border-bottom:2px solid var(--border);padding-bottom:0}
+.sem-tab{font-size:0.82rem;font-weight:600;color:var(--text-mid);padding:0.6rem 1.25rem;cursor:pointer;border-radius:6px 6px 0 0;border:1px solid transparent;border-bottom:none;background:transparent;margin-bottom:-2px;transition:all var(--transition)}
+.sem-tab:hover{color:var(--navy);background:var(--ivory-soft)}
+.sem-tab.active{color:var(--navy);background:white;border-color:var(--border);border-bottom-color:white}
+.sem-panel{display:none}
+.sem-panel.active{display:block}
+
+/* ACCORDION */
+.accordion{border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:1rem;background:white}
+.accordion-header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;cursor:pointer;user-select:none;background:white;transition:background var(--transition)}
+.accordion-header:hover{background:var(--ivory-soft)}
+.accordion-header.open{background:var(--navy)}
+.acc-left{display:flex;align-items:center;gap:0.85rem}
+.acc-cat{font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);background:rgba(168,137,80,0.1);padding:0.25rem 0.65rem;border-radius:4px;white-space:nowrap}
+.accordion-header.open .acc-cat{background:rgba(168,137,80,0.2);color:var(--gold-light)}
+.acc-title{font-size:0.9rem;font-weight:600;color:var(--text-dark)}
+.accordion-header.open .acc-title{color:white}
+.acc-arrow{font-size:0.75rem;color:var(--text-light);transition:transform var(--transition)}
+.accordion-header.open .acc-arrow{transform:rotate(180deg);color:rgba(255,255,255,0.6)}
+.accordion-body{display:none;border-top:1px solid var(--border)}
+.accordion-body.open{display:block}
+
+/* TABLE */
+.api-table{width:100%;border-collapse:collapse;font-size:0.85rem}
+.api-table thead th{background:var(--ivory-soft);padding:0.65rem 1rem;text-align:left;font-size:0.72rem;font-weight:600;letter-spacing:0.07em;color:var(--text-mid);text-transform:uppercase;border-bottom:1px solid var(--border)}
+.api-table tbody tr:last-child td{border-bottom:none}
+.api-table tbody td{padding:0.75rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-mid)}
+.api-table tbody td:first-child{color:var(--text-dark);font-weight:500;width:35%}
+.api-table tbody td:last-child{width:120px;text-align:center}
+.placeholder{color:var(--text-light);font-style:italic;font-size:0.8rem}
+.score-done{color:#2D7D4F;font-weight:600;font-size:0.875rem}
+.score-na{color:var(--text-light);font-size:0.8rem}
+
+/* PROOF LINK */
+.proof-link{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.78rem;color:var(--gold);font-weight:500;border:1px solid rgba(168,137,80,0.3);border-radius:4px;padding:0.2rem 0.6rem;transition:all var(--transition)}
+.proof-link:hover{background:rgba(168,137,80,0.08)}
+.proof-placeholder{font-size:0.75rem;color:var(--text-light);font-style:italic}
+
+/* PROOFS SECTION */
+.proofs-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0.75rem;padding:1rem 1.25rem;background:var(--ivory-soft);border-top:1px solid var(--border)}
+.proof-card{background:white;border:1px solid var(--border);border-radius:6px;padding:0.85rem 1rem;font-size:0.82rem}
+.proof-card .proof-label{font-size:0.7rem;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.3rem}
+.proof-card .proof-name{color:var(--text-dark);font-weight:500;margin-bottom:0.4rem;font-size:0.82rem}
+.proof-card a{color:var(--gold);font-size:0.78rem;word-break:break-all}
+
+/* FOOTER */
+footer{background:var(--navy-deep);padding:2.5rem 2rem;margin-top:0}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+footer p{font-size:0.775rem;color:rgba(255,255,255,0.3)}
+footer a{color:rgba(255,255,255,0.4)}
+
+@media(max-width:900px){.nav-links{display:none}.nav-toggle{display:flex}}
+@media(max-width:600px){.content{padding:2rem 1rem}.sem-tabs{flex-wrap:wrap}.api-table tbody td:first-child{width:auto}}
 </style>
 </head>
 <body>
+
+<!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="nav-brand">Dr. Nagarjuna Sunkara</a>
+    <a class="nav-brand" href="index.html">Dr. Nagarjuna Sunkara</a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
@@ -85,7 +129,9 @@ footer p{font-size:0.775rem;color:rgba(255,255,255,0.32)}
       <li><a href="api.html" class="active">API</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button class="nav-toggle" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
+    <button class="nav-toggle" onclick="toggleDrawer()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 <div class="nav-drawer" id="navDrawer">
@@ -98,212 +144,274 @@ footer p{font-size:0.775rem;color:rgba(255,255,255,0.32)}
     <a class="drawer-link" href="research.html">Research</a>
     <a class="drawer-link" href="publications.html">Publications</a>
     <a class="drawer-link" href="experience.html">Experience</a>
-    <a class="drawer-link" href="api.html">API</a>
+    <a class="drawer-link active" href="api.html">API</a>
     <a class="drawer-link" href="contact.html">Contact</a>
   </div>
 </div>
 
+<!-- PAGE HEADER -->
 <div class="page-header">
   <div class="page-header-inner">
-    <div class="breadcrumb"><a href="index.html">Home</a> / <span>API</span></div>
-    <div class="subtitle">Academic Performance Indicator</div>
-    <h1>API Record</h1>
-    <p>St. Mary's College Annual Academic Appraisal — Structured Evidence Record</p>
+    <div class="breadcrumb"><a href="index.html">Home</a> › <span>Academic Performance Indicator</span></div>
+    <div class="subtitle">St. Mary's College · Annual Academic Appraisal</div>
+    <h1>Academic Performance Indicator</h1>
+    <p>Semester-wise structured evidence record of teaching, co-curricular and research contributions — maintained as part of St. Mary's College annual faculty appraisal framework.</p>
   </div>
 </div>
 
+<!-- CONTENT -->
 <div class="content">
 
   <div class="info-note">
-    This page documents Dr. Nagarjuna Sunkara's Academic Performance Indicator (API) — the structured self-appraisal and evidence record maintained as part of St. Mary's College's annual academic performance review. The API framework assesses faculty contributions across three categories: Teaching &amp; Learning (B-I), Co-Curricular &amp; Extension Activities (B-II), and Research &amp; Institution Building (B-III).
+    <strong>About the API Framework:</strong> The Academic Performance Indicator (API) is St. Mary's College's structured self-appraisal system. Faculty contributions are assessed across three categories — <strong>B(I) Teaching, Learning &amp; Evaluation</strong>, <strong>B(II) Co-Curricular, Extension &amp; Professional Development</strong>, and <strong>B(III) Research, Knowledge Creation &amp; Institution Building</strong>. Records are maintained semester-wise (Odd: July–November · Even: December–April). Scores and proof links will be updated at the close of each semester.
   </div>
 
-  <div class="ay-banner">
-    <div>
-      <div class="ay-label">Academic Year</div>
-      <div class="ay-value">2026 – 27 (First Year)</div>
+  <!-- ══════════════════════════════════════════
+       AY 2026–27  (CURRENT)
+  ══════════════════════════════════════════ -->
+  <div class="year-block">
+    <div class="year-header">
+      <div class="year-badge">AY 2026 – 27</div>
+      <div class="year-line"></div>
+      <div class="year-status">Current Year</div>
     </div>
-    <div>
-      <div class="ay-label">Department</div>
-      <div class="ay-value">Business Management · St. Mary's College</div>
+
+    <!-- SEM TABS -->
+    <div class="sem-tabs" id="tabs-2627">
+      <div class="sem-tab active" onclick="switchTab('2627','odd')">Odd Semester (Jul–Nov 2026)</div>
+      <div class="sem-tab" onclick="switchTab('2627','even')">Even Semester (Dec 2026–Apr 2027)</div>
     </div>
-    <div class="ay-note">Data to be populated at year-end review</div>
+
+    <!-- ODD SEM 2026 -->
+    <div class="sem-panel active" id="2627-odd">
+
+      <!-- B-I -->
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAcc(this)">
+          <div class="acc-left">
+            <span class="acc-cat">B–I</span>
+            <span class="acc-title">Teaching, Learning &amp; Evaluation Activities</span>
+          </div>
+          <span class="acc-arrow">▼</span>
+        </div>
+        <div class="accordion-body">
+          <table class="api-table">
+            <thead><tr><th>Activity</th><th>Details / Evidence</th><th>Score</th></tr></thead>
+            <tbody>
+              <tr><td>Subjects Taught</td><td>Business Analytics · Business Economics · Advanced Data Visualisation (BBA)</td><td><span class="score-done">✓</span></td></tr>
+              <tr><td>Lecture Hours Delivered</td><td><span class="placeholder">To be updated at semester close</span></td><td><span class="placeholder">—</span></td></tr>
+              <tr><td>Student Feedback Score</td><td><span class="placeholder">To be updated after feedback cycle</span></td><td><span class="placeholder">—</span></td></tr>
+              <tr><td>Course Material Prepared</td><td>Course notes, slides and real-world dataset exercises for all three subjects</td><td><span class="score-done">✓</span></td></tr>
+              <tr><td>Innovations in Teaching</td><td>Live dataset integration (CMIE, EPWRF); industry case-based teaching; peer-learning seminar format</td><td><span class="score-done">✓</span></td></tr>
+              <tr><td>Class Mentoring</td><td>Assigned Class Mentor — BBA batch. Regular academic and personal guidance sessions.</td><td><span class="score-done">✓</span></td></tr>
+              <tr><td>Internal Assessment / Exams</td><td><span class="placeholder">To be updated at assessment close</span></td><td><span class="placeholder">—</span></td></tr>
+            </tbody>
+          </table>
+          <div class="proofs-row">
+            <div class="proof-card">
+              <div class="proof-label">Proof</div>
+              <div class="proof-name">Timetable / Workload Allocation</div>
+              <span class="proof-placeholder">Drive link to be added</span>
+            </div>
+            <div class="proof-card">
+              <div class="proof-label">Proof</div>
+              <div class="proof-name">Student Feedback Form</div>
+              <span class="proof-placeholder">Drive link to be added</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- B-II -->
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAcc(this)">
+          <div class="acc-left">
+            <span class="acc-cat">B–II</span>
+            <span class="acc-title">Co-Curricular, Extension &amp; Professional Development Activities</span>
+          </div>
+          <span class="acc-arrow">▼</span>
+        </div>
+        <div class="accordion-body">
+          <table class="api-table">
+            <thead><tr><th>Activity</th><th>Details / Evidence</th><th>Score</th></tr></thead>
+            <tbody>
+              <tr><td>Community Outreach Programme</td><td>Communication Skills 101 · Government High School, Jawahar Nagar · July 2026 · ~300 students (Classes VI–X)</td><td><span class="score-done">✓</span></td></tr>
+              <tr><td>FDPs Attended</td><td>Panel Data Analysis (STATA) · Innovative Teaching Pedagogy · Extensible AI for Smarter Research — all 2026</td><td><span class="score-done">✓</span></td></tr>
+              <tr><td>Guest Lectures / Invited Talks</td><td><span class="placeholder">To be updated as invitations are fulfilled</span></td><td><span class="placeholder">—</span></td></tr>
+              <tr><td>Student Development Activities</td><td>Career readiness sessions — resume writing, interview skills, professional communication</td><td><span class="score-done">✓</span></td></tr>
+              <tr><td>Institutional Committees</td><td><span class="placeholder">To be updated as committee assignments are confirmed</span></td><td><span class="placeholder">—</span></td></tr>
+              <tr><td>SHRM-CP Certification</td><td>Society for Human Resource Management · 2023</td><td><span class="score-done">✓</span></td></tr>
+            </tbody>
+          </table>
+          <div class="proofs-row">
+            <div class="proof-card">
+              <div class="proof-label">Proof</div>
+              <div class="proof-name">FDP — Panel Data Analysis (STATA)</div>
+              <span class="proof-placeholder">Drive link to be added</span>
+            </div>
+            <div class="proof-card">
+              <div class="proof-label">Proof</div>
+              <div class="proof-name">FDP — Innovative Teaching Pedagogy</div>
+              <span class="proof-placeholder">Drive link to be added</span>
+            </div>
+            <div class="proof-card">
+              <div class="proof-label">Proof</div>
+              <div class="proof-name">FDP — Extensible AI for Smarter Research</div>
+              <span class="proof-placeholder">Drive link to be added</span>
+            </div>
+            <div class="proof-card">
+              <div class="proof-label">Proof</div>
+              <div class="proof-name">School Outreach Certificate / Report</div>
+              <span class="proof-placeholder">Drive link to be added</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- B-III -->
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAcc(this)">
+          <div class="acc-left">
+            <span class="acc-cat">B–III</span>
+            <span class="acc-title">Research, Knowledge Creation &amp; Institution Building</span>
+          </div>
+          <span class="acc-arrow">▼</span>
+        </div>
+        <div class="accordion-body">
+          <table class="api-table">
+            <thead><tr><th>Activity</th><th>Details / Evidence</th><th>Score</th></tr></thead>
+            <tbody>
+              <tr><td>Journal Articles (this sem)</td><td><span class="placeholder">Manuscript in preparation — to be updated on publication</span></td><td><span class="placeholder">—</span></td></tr>
+              <tr><td>Conference Papers (this sem)</td><td><span class="placeholder">To be updated</span></td><td><span class="placeholder">—</span></td></tr>
+              <tr><td>Book Chapters (this sem)</td><td><span class="placeholder">To be updated</span></td><td><span class="placeholder">—</span></td></tr>
+              <tr><td>Cumulative Publications (prior)</td><td>3 Journal Articles · 20 Conference Papers · 4 Book Chapters</td><td><span class="score-done">27</span></td></tr>
+              <tr><td>PhD Awarded</td><td>Acharya Nagarjuna University · Commerce &amp; Management · 2022</td><td><span class="score-done">✓</span></td></tr>
+              <tr><td>Research Projects / Grants</td><td><span class="score-na">No active funded project at present</span></td><td><span class="score-na">N/A</span></td></tr>
+              <tr><td>Academic Profiles — Verified</td><td>Google Scholar · ORCID (0009-0009-3459-6117) · ResearchGate · LinkedIn</td><td><span class="score-done">✓</span></td></tr>
+            </tbody>
+          </table>
+          <div class="proofs-row">
+            <div class="proof-card">
+              <div class="proof-label">Proof</div>
+              <div class="proof-name">PhD Certificate</div>
+              <span class="proof-placeholder">Drive link to be added</span>
+            </div>
+            <div class="proof-card">
+              <div class="proof-label">Proof</div>
+              <div class="proof-name">Publication List (Google Scholar)</div>
+              <a href="https://scholar.google.com/citations?user=BulEsx0AAAAJ&hl=en" target="_blank">View Profile ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /2627-odd -->
+
+    <!-- EVEN SEM 2026-27 (placeholder) -->
+    <div class="sem-panel" id="2627-even">
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAcc(this)">
+          <div class="acc-left"><span class="acc-cat">B–I</span><span class="acc-title">Teaching, Learning &amp; Evaluation Activities</span></div>
+          <span class="acc-arrow">▼</span>
+        </div>
+        <div class="accordion-body">
+          <table class="api-table">
+            <thead><tr><th>Activity</th><th>Details / Evidence</th><th>Score</th></tr></thead>
+            <tbody>
+              <tr><td>Subjects Taught</td><td><span class="placeholder">To be confirmed — Even Sem AY 2026-27</span></td><td><span class="placeholder">—</span></td></tr>
+              <tr><td>Lecture Hours Delivered</td><td><span class="placeholder">To be updated at semester close</span></td><td><span class="placeholder">—</span></td></tr>
+              <tr><td>Student Feedback Score</td><td><span class="placeholder">To be updated after feedback cycle</span></td><td><span class="placeholder">—</span></td></tr>
+              <tr><td>Course Material Prepared</td><td><span class="placeholder">To be updated</span></td><td><span class="placeholder">—</span></td></tr>
+              <tr><td>Innovations in Teaching</td><td><span class="placeholder">To be updated</span></td><td><span class="placeholder">—</span></td></tr>
+              <tr><td>Class Mentoring</td><td><span class="placeholder">To be updated</span></td><td><span class="placeholder">—</span></td></tr>
+              <tr><td>Internal Assessment / Exams</td><td><span class="placeholder">To be updated</span></td><td><span class="placeholder">—</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAcc(this)">
+          <div class="acc-left"><span class="acc-cat">B–II</span><span class="acc-title">Co-Curricular, Extension &amp; Professional Development Activities</span></div>
+          <span class="acc-arrow">▼</span>
+        </div>
+        <div class="accordion-body">
+          <table class="api-table">
+            <thead><tr><th>Activity</th><th>Details / Evidence</th><th>Score</th></tr></thead>
+            <tbody>
+              <tr><td>FDPs Attended</td><td><span class="placeholder">To be updated</span></td><td><span class="placeholder">—</span></td></tr>
+              <tr><td>Guest Lectures / Invited Talks</td><td><span class="placeholder">To be updated</span></td><td><span class="placeholder">—</span></td></tr>
+              <tr><td>Community / Extension Activities</td><td><span class="placeholder">To be updated</span></td><td><span class="placeholder">—</span></td></tr>
+              <tr><td>Student Development Activities</td><td><span class="placeholder">To be updated</span></td><td><span class="placeholder">—</span></td></tr>
+              <tr><td>Institutional Committees</td><td><span class="placeholder">To be updated</span></td><td><span class="placeholder">—</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAcc(this)">
+          <div class="acc-left"><span class="acc-cat">B–III</span><span class="acc-title">Research, Knowledge Creation &amp; Institution Building</span></div>
+          <span class="acc-arrow">▼</span>
+        </div>
+        <div class="accordion-body">
+          <table class="api-table">
+            <thead><tr><th>Activity</th><th>Details / Evidence</th><th>Score</th></tr></thead>
+            <tbody>
+              <tr><td>Journal Articles (this sem)</td><td><span class="placeholder">To be updated on publication</span></td><td><span class="placeholder">—</span></td></tr>
+              <tr><td>Conference Papers (this sem)</td><td><span class="placeholder">To be updated</span></td><td><span class="placeholder">—</span></td></tr>
+              <tr><td>Book Chapters (this sem)</td><td><span class="placeholder">To be updated</span></td><td><span class="placeholder">—</span></td></tr>
+              <tr><td>Research Projects / Grants</td><td><span class="placeholder">To be updated</span></td><td><span class="placeholder">—</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div><!-- /2627-even -->
+  </div><!-- /year 2026-27 -->
+
+  <!-- ══════════════════════════════════════════
+       PLACEHOLDER: AY 2027–28
+  ══════════════════════════════════════════ -->
+  <div class="year-block">
+    <div class="year-header">
+      <div class="year-badge" style="opacity:0.5">AY 2027 – 28</div>
+      <div class="year-line"></div>
+      <div class="year-status" style="opacity:0.5">Upcoming</div>
+    </div>
+    <div style="background:white;border:1px dashed var(--border);border-radius:8px;padding:1.5rem;text-align:center;color:var(--text-light);font-size:0.875rem;font-style:italic">
+      Records for AY 2027–28 will be added at the start of the academic year.
+    </div>
   </div>
 
-  <!-- B-I: TEACHING & LEARNING -->
-  <div class="api-category">
-    <div class="cat-header">
-      <div class="cat-code">B — I</div>
-      <div class="cat-title">Teaching, Learning &amp; Evaluation</div>
-    </div>
-    <div class="cat-body">
-      <table class="api-table">
-        <thead>
-          <tr>
-            <th style="width:40%">Activity / Evidence</th>
-            <th>Details</th>
-            <th style="width:120px">Score / Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><div class="item-label">Subjects Taught</div><div class="item-detail">AY 2026–27</div></td>
-            <td>Business Analytics · Business Economics · Advanced Data Visualisation (BBA)</td>
-            <td class="score-cell"><span class="placeholder">— AY end</span></td>
-          </tr>
-          <tr>
-            <td><div class="item-label">Lecture Hours Delivered</div><div class="item-detail">Total contact hours per semester</div></td>
-            <td><span class="placeholder">To be updated at semester close</span></td>
-            <td><span class="placeholder">—</span></td>
-          </tr>
-          <tr>
-            <td><div class="item-label">Student Feedback Score</div><div class="item-detail">Collected via institutional mechanism</div></td>
-            <td><span class="placeholder">To be updated after feedback cycle</span></td>
-            <td><span class="placeholder">—</span></td>
-          </tr>
-          <tr>
-            <td><div class="item-label">Course Material Prepared</div><div class="item-detail">Lecture notes, slides, assessments</div></td>
-            <td>Developed course notes and slide decks for all three subjects; real-world dataset exercises for Business Analytics</td>
-            <td class="score-cell"><span class="placeholder">—</span></td>
-          </tr>
-          <tr>
-            <td><div class="item-label">Innovations in Teaching</div><div class="item-detail">New methods, tools, approaches used</div></td>
-            <td>Live dataset integration (CMIE, EPWRF); industry case-based teaching; peer-learning seminar format</td>
-            <td class="score-cell"><span class="placeholder">—</span></td>
-          </tr>
-          <tr>
-            <td><div class="item-label">Class Mentoring</div><div class="item-detail">Student mentor responsibilities</div></td>
-            <td>Assigned Class Mentor — BBA batch. Regular academic and personal guidance sessions.</td>
-            <td class="score-cell"><span class="placeholder">—</span></td>
-          </tr>
-          <tr>
-            <td><div class="item-label">Internal Examination &amp; Assessment</div><div class="item-detail">Question setting, evaluation, results</div></td>
-            <td><span class="placeholder">To be updated at assessment close</span></td>
-            <td><span class="placeholder">—</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- B-II: CO-CURRICULAR & EXTENSION -->
-  <div class="api-category">
-    <div class="cat-header">
-      <div class="cat-code">B — II</div>
-      <div class="cat-title">Co-Curricular, Extension &amp; Professional Activities</div>
-    </div>
-    <div class="cat-body">
-      <table class="api-table">
-        <thead>
-          <tr>
-            <th style="width:40%">Activity / Evidence</th>
-            <th>Details</th>
-            <th style="width:120px">Score / Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><div class="item-label">Community Outreach Programme</div><div class="item-detail">Organised / Facilitated</div></td>
-            <td>Communication Skills 101 · Government High School, Jawahar Nagar, Hyderabad · July 2026 · ~300 students (Classes VI–X). Ongoing initiative.</td>
-            <td class="score-cell"><span class="placeholder">—</span></td>
-          </tr>
-          <tr>
-            <td><div class="item-label">Guest Lectures / Invited Talks</div></td>
-            <td><span class="placeholder">To be updated as invitations are fulfilled</span></td>
-            <td><span class="placeholder">—</span></td>
-          </tr>
-          <tr>
-            <td><div class="item-label">Student Development Activities</div><div class="item-detail">Workshops, career sessions, seminars</div></td>
-            <td>Career readiness sessions — resume writing, interview skills, professional communication for BBA students</td>
-            <td class="score-cell"><span class="placeholder">—</span></td>
-          </tr>
-          <tr>
-            <td><div class="item-label">Participation in Institutional Committees</div></td>
-            <td><span class="placeholder">To be updated as committee assignments are confirmed</span></td>
-            <td><span class="placeholder">—</span></td>
-          </tr>
-          <tr>
-            <td><div class="item-label">Faculty Development Programmes Attended</div></td>
-            <td>
-              Intro to Panel Data Analysis — STATA · Dayananda Sagar College, Bengaluru · July 2026<br>
-              Innovative Teaching &amp; Learning Pedagogy · Research Foundation of India / Parul University · July–Aug 2026<br>
-              Extensible AI for Smarter Research · Research Foundation of India / Rama University · Sep 2026
-            </td>
-            <td class="score-cell"><span class="placeholder">—</span></td>
-          </tr>
-          <tr>
-            <td><div class="item-label">Professional Membership / Certifications</div></td>
-            <td>SHRM-CP (Society for Human Resource Management) · 2023<br>People Analytics Certification — University of Pennsylvania</td>
-            <td class="score-cell"><span class="placeholder">—</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- B-III: RESEARCH & INSTITUTION BUILDING -->
-  <div class="api-category">
-    <div class="cat-header">
-      <div class="cat-code">B — III</div>
-      <div class="cat-title">Research, Consultancy &amp; Institution Building</div>
-    </div>
-    <div class="cat-body">
-      <table class="api-table">
-        <thead>
-          <tr>
-            <th style="width:40%">Activity / Evidence</th>
-            <th>Details</th>
-            <th style="width:120px">Score / Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><div class="item-label">Journal Articles Published</div><div class="item-detail">AY 2026–27 or in press</div></td>
-            <td><span class="placeholder">To be updated — manuscript in preparation</span></td>
-            <td><span class="placeholder">—</span></td>
-          </tr>
-          <tr>
-            <td><div class="item-label">Conference Papers Presented</div><div class="item-detail">AY 2026–27</div></td>
-            <td><span class="placeholder">To be updated as conferences are attended</span></td>
-            <td><span class="placeholder">—</span></td>
-          </tr>
-          <tr>
-            <td><div class="item-label">Book Chapters</div><div class="item-detail">Published / Accepted AY 2026–27</div></td>
-            <td><span class="placeholder">To be updated</span></td>
-            <td><span class="placeholder">—</span></td>
-          </tr>
-          <tr>
-            <td><div class="item-label">Cumulative Publications (prior to AY 2026–27)</div></td>
-            <td>3 Journal Articles · 20 Conference Papers · 4 ISBN Book Chapters · <a href="publications.html" style="color:var(--gold)">View full list →</a></td>
-            <td class="score-cell">27</td>
-          </tr>
-          <tr>
-            <td><div class="item-label">PhD Awarded</div></td>
-            <td>Acharya Nagarjuna University · Commerce &amp; Management · 2022</td>
-            <td class="score-cell">Completed</td>
-          </tr>
-          <tr>
-            <td><div class="item-label">Research Projects / Grants</div></td>
-            <td><span class="placeholder">To be updated — no active funded project at present</span></td>
-            <td><span class="placeholder">—</span></td>
-          </tr>
-          <tr>
-            <td><div class="item-label">Academic Profiles — Verified</div></td>
-            <td>
-              Google Scholar · ORCID (0009-0009-3459-6117) · ResearchGate · LinkedIn
-            </td>
-            <td class="score-cell"><span class="placeholder">—</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-</div>
+</div><!-- /content -->
 
 <footer>
-  <p>© 2026 Dr. Nagarjuna Sunkara · Assistant Professor, Department of Business Management, St. Mary's College, Yousufguda, Hyderabad · <a href="mailto:nagarjuna@stmaryscollege.in" style="color:rgba(255,255,255,0.4)">nagarjuna@stmaryscollege.in</a></p>
+  <div class="footer-inner">
+    <p>© 2026 Dr. Nagarjuna Sunkara · St. Mary's College, Yousufguda, Hyderabad</p>
+    <p><a href="mailto:nagarjuna@stmaryscollege.in">nagarjuna@stmaryscollege.in</a></p>
+  </div>
 </footer>
-<script>function toggleDrawer(){document.getElementById('navDrawer').classList.toggle('open')}</script>
+
+<script>
+function toggleDrawer(){
+  document.getElementById('navDrawer').classList.toggle('open');
+}
+function toggleAcc(header){
+  const body = header.nextElementSibling;
+  const isOpen = header.classList.contains('open');
+  header.classList.toggle('open',!isOpen);
+  body.classList.toggle('open',!isOpen);
+}
+function switchTab(year, sem){
+  const tabContainer = document.getElementById('tabs-'+year);
+  const tabs = tabContainer.querySelectorAll('.sem-tab');
+  tabs.forEach((t,i)=>{
+    const s = i===0?'odd':'even';
+    t.classList.toggle('active', s===sem);
+  });
+  ['odd','even'].forEach(s=>{
+    const panel = document.getElementById(year+'-'+s);
+    if(panel) panel.classList.toggle('active', s===sem);
+  });
+}
+</script>
 </body>
 </html>
